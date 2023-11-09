@@ -18,9 +18,14 @@ jobs:
           run: |
             npm install
 
-        - name: sonarqube
-          #uses: sonarsource/sonarqube-scan-action@master
-          run: |
-            echo "SONAR_TOKEN=${{secrets.DB_HOST}}" > .env
-            echo "SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}" >> .env
+        - name: SonarQube Scan
+          uses: sonarsource/sonarqube-scan-action@master
+          with:
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+
+
+
+          
        
